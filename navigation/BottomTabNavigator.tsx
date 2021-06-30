@@ -75,7 +75,10 @@ function HomeNavigator() {
         component={TabOneScreen}
         options={{
             headerRightContainerStyle: {
-              marginRight: 10,
+              marginRight: 15,
+            },
+            headerLeftContainerStyle: {
+              marginLeft: 15,
             },
             headerTitle: () => (
                 <Ionicons name={"logo-twitter"} size={30} color={Colors.light.tint} />
