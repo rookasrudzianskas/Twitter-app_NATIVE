@@ -15,7 +15,7 @@ export type BottomTabParamList = {
   Messages: undefined;
 };
 
-export type HomeNavigator = {
+export type HomeNavigatorParamList = {
   HomeScreen: undefined;
 };
 

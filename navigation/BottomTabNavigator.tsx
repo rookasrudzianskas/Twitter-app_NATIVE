@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import {MaterialCommunityIcons} from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
@@ -71,7 +72,17 @@ function HomeNavigator() {
       <TabOneStack.Screen
         name="HomeScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Home' }}
+        options={{
+            headerRightContainerStyle: {
+              marginRight: 10,
+            },
+            headerTitle: () => (
+                <Ionicons name={"logo-twitter"} size={30} color={Colors.light.tint} />
+            ),
+            headerRight: () => (
+                <MaterialCommunityIcons name={"star-four-points-outline"} size={30} color={Colors.light.tint} />
+            ),
+        }}
       />
     </TabOneStack.Navigator>
   );
