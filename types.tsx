@@ -15,8 +15,8 @@ export type BottomTabParamList = {
   Messages: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
+export type HomeNavigator = {
+  HomeScreen: undefined;
 };
 
 export type TabTwoParamList = {
