@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import { MaterialIcons } from '@expo/vector-icons';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -16,22 +17,40 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName="Home"
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint,
+      showLabel: false,
+      }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Home"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="home-filled" size={24} color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Search"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-search" color={color} />,
         }}
       />
+
+        <BottomTab.Screen
+            name="Notifications"
+            component={TabTwoNavigator}
+            options={{
+                tabBarIcon: ({ color }) => <TabBarIcon name="ios-notifications-outline" color={color} />,
+            }}
+        />
+
+        <BottomTab.Screen
+            name="Messages"
+            component={TabTwoNavigator}
+            options={{
+                tabBarIcon: ({ color }) => <TabBarIcon name="ios-mail" color={color} />,
+            }}
+        />
     </BottomTab.Navigator>
   );
 }
