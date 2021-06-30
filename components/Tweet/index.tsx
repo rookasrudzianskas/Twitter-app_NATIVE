@@ -7,7 +7,10 @@ export type TweetProps = {
 
 const Tweet = (props: TweetProps) => {
     <View>
-    {/*    Left  bar */}
+    {/*    Left  Container */}
+
+
+    {/*    Main  Container */}
 
     </View>
 }
