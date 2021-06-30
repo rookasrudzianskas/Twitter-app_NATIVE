@@ -10,6 +10,7 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BottomTabParamList, HomeNavigatorParamList, TabTwoParamList } from '../types';
+import ProfilePicture from '../components/ProfilePicture';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -81,6 +82,9 @@ function HomeNavigator() {
             ),
             headerRight: () => (
                 <MaterialCommunityIcons name={"star-four-points-outline"} size={30} color={Colors.light.tint} />
+            ),
+            headerLeft: () => (
+                <ProfilePicture size={40} image={"https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg"} />
             ),
         }}
       />
