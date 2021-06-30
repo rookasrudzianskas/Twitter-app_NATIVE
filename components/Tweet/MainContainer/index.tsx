@@ -7,7 +7,9 @@ export type MainContainerProps = {
 
 const MainContainer = (props: MainContainerProps) => {
     <View>
-    {/*    Profile picture */}
+    {/*    username */}
+    {/*    content */}
+    {/*    tweet footer */}
 
     </View>
 }
