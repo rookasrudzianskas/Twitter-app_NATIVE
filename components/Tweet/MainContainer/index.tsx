@@ -6,13 +6,13 @@ export type MainContainerProps = {
 }
 
 const MainContainer = (props: MainContainerProps) => {
-    <View>
-        <Text>Hello world 🚀</Text>
-    {/*    username */}
-    {/*    content */}
-    {/*    tweet footer */}
+    return (
+        <View>
+            <Text>Hello World 🚀</Text>
+            {/*    Profile picture */}
 
-    </View>
+        </View>
+    )
 }
 
 export default MainContainer;
