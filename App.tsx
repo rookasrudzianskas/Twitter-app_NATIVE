@@ -54,7 +54,8 @@ function App() {
             image: getRandomImage(),
 
           }
-          await saveUserToDB();
+          // @ts-ignore
+          await saveUserToDB(user);
         } else {
           console.log("User already exists in the database");
         }
