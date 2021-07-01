@@ -30,8 +30,10 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 300,
-        resizeMode: "contain",
+        height: 200,
+        resizeMode: "cover",
+        borderRadius: 15,
+        overflow: "hidden",
     }
 });
 
