@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
       flexDirection: "row",
+      alignItems: "center",
     },
     content: {
 
