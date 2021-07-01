@@ -80,10 +80,16 @@ function HomeNavigator() {
         // get the current user
         const fetchUser = async () => {
             const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true });
+            if(!userInfo) {
+                return;
+            }
 
             try {
                 const userData = await API.graphql(graphqlOperation(getUser, {id: userInfo.attributes.sub} ));
 
+                if(userData) {
+                    setUser(userData.data.getUser);
+                }
             } catch (e) {
 
             }
