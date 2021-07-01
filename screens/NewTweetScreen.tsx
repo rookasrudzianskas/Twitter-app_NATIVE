@@ -87,8 +87,6 @@ export default function NewTweetScreen() {
             image = await  uploadImage();
         }
 
-        console.log(image);
-
         // we go forward
 
         try {
