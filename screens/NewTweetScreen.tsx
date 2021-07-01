@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     headerContainer: {
       flexDirection: 'row',
         justifyContent: "space-between",
-        flex: 1,
+        width: "100%",
+        padding: 15,
     },
     button: {
         backgroundColor: Colors.light.tint,
