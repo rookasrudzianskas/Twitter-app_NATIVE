@@ -19,6 +19,7 @@ export default function NewTweetScreen() {
     const [tweet, setTweet] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
+    const navigation = useNavigation();
 
     //CONNECTED TO THE AWS
     const onPostTweet = async () => {
@@ -35,12 +36,12 @@ export default function NewTweetScreen() {
                 userID: currentUser.attributes.sub,
             }
             await API.graphql(graphqlOperation(createTweet, {input: newTweet}));
+            navigation.goBack();
         } catch (e) {
             console.log("ERROR", e);
         }
     }
 
-    const navigation = useNavigation();
 
     const closeModal = () => {
         navigation.navigate('HomeScreen');
