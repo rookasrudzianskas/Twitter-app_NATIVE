@@ -2,11 +2,13 @@ import React from "react";
 import {View, Text, TouchableOpacity} from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from "./style";
+import {useNavigation} from "@react-navigation/native";
 
 const NewTweetButton = () => {
 
+    const navigation = useNavigation();
     const onPress = () => {
-        console.log("This works out");
+
     }
 
     return (
