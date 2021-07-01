@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from "react-native";
 import {TweetType} from "../../../../types";
 import styles from "./styles";
-import {Ionicons} from "@expo/vector-icons";
+import {Ionicons, Feather, EvilIcons, AntDesign} from "@expo/vector-icons";
 
 export type MainContainerProps = {
     tweet: TweetType
@@ -11,8 +11,25 @@ export type MainContainerProps = {
 const Footer = ({tweet}: MainContainerProps) => {
     return (
             <View style={styles.container}>
-                <Text style={styles.content}>Content</Text>
-                {!tweet.image && <Image source={{uri: tweet.image}} />}
+                <View>
+                    <Feather name="message-circle" size={20} color="gray" />
+                    <Text style={styles.number}>{tweet.numberOfComments}</Text>
+                </View>
+
+                <View>
+                    <EvilIcons name="retweet" size={20} color="gray" />
+                    <Text style={styles.number}>{tweet.numberOfRetweets}</Text>
+                </View>
+
+                <View>
+                    <AntDesign name="hearto" size={20} color="gray" />
+                    <Text style={styles.number}>{tweet.numberOfLikes}</Text>
+                </View>
+
+                <View>
+                    <EvilIcons name="share-google" size={20} color="gray" />
+                    <Text style={styles.number}>{tweet.numberOfLikes}</Text>
+                </View>
             </View>
     )
 }

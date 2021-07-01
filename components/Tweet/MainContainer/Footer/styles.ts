@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     content: {
 
     },
+    number: {
+        color: "grey",
+    }
 });
 
 export default styles;
