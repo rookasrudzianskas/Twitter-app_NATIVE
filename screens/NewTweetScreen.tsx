@@ -96,10 +96,10 @@ export default function NewTweetScreen() {
             <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
             <View style={styles.inputsContainer}>
                 <TextInput value={tweet} onChangeText={(text) => setTweet(text)} multiline={true} numberOfLines={3} placeholder="What's happening?" style={styles.tweetInput} />
-                <TouchableOpacity>
-                    <Text>Select the image</Text>
+                <TouchableOpacity onPress={pickImage}>
+                    <Text style={styles.pickImage}>Select the image</Text>
                 </TouchableOpacity>
-                <TextInput value={imageUrl} onChangeText={(text) => setImageUrl(text)} placeholder="Image url (optional)" style={styles.imageInput} />
+                <Image style={styles.image} source={{uri: imageUrl}} />
             </View>
 
         </View>
@@ -149,6 +149,17 @@ const styles = StyleSheet.create({
 
     },
     imageInput: {
+
+    },
+    pickImage: {
+        color: Colors.light.tint,
+        fontSize: 18,
+        marginVertical: 10,
+    },
+
+    image: {
+        width: 150,
+        height: 150,
 
     }
 
