@@ -23,7 +23,10 @@ function App() {
   // @ts-ignore
   // types problem in amplify @TODO
   const saveUserToDB = async (user) => {
+    console.log("This goes in here #4");
+
     await API.graphql(graphqlOperation(createUser, {input: user}));
+    console.log("👽", user);
   }
 
   const getRandomImage = () => {
@@ -43,10 +46,8 @@ function App() {
       // Check if the user already exists in the database
         // checks for the user by id, and then by the sub
       const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }));
-        console.log(userData);
 
         if(!userData.data.getUser) {
-
           const user = {
             // this is because of the id, it is an unique identifier
             id: userInfo.attributes.sub,
