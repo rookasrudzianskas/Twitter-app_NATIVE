@@ -40,6 +40,9 @@ function App() {
         if(!userData.data.getUser) {
 
           const user = {
+            username: userInfo.attributes.username,
+            name: userInfo.attributes.username,
+            email: userInfo.attributes.email,
 
           }
           saveUserToDB();
