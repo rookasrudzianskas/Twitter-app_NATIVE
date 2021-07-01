@@ -9,17 +9,11 @@ import NewTweetButton from "../components/NewTweetButton";
 
 export default function NewTweetScreen() {
   return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
+    <View>
+      <View>
+
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-});
