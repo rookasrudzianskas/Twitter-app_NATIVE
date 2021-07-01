@@ -8,6 +8,7 @@ import Feed from "../components/Feed";
 import NewTweetButton from "../components/NewTweetButton";
 import {EvilIcons, AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
+import ProfilePicture from "../components/ProfilePicture";
 
 export default function NewTweetScreen() {
 
@@ -22,6 +23,9 @@ export default function NewTweetScreen() {
             <Text style={styles.buttonText}>Tweet</Text>
           </TouchableOpacity>
       </View>
+        <View>
+            <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
+        </View>
     </SafeAreaView>
   );
 }
@@ -30,6 +34,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'flex-start',
+        backgroundColor: "white",
     },
     headerContainer: {
       flexDirection: 'row',
