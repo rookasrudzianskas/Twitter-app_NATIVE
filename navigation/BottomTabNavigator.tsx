@@ -99,7 +99,7 @@ function HomeNavigator() {
     }, []);
 
 
-  return (
+    return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="HomeScreen"
@@ -118,7 +118,8 @@ function HomeNavigator() {
                 <MaterialCommunityIcons name={"star-four-points-outline"} size={30} color={Colors.light.tint} />
             ),
             headerLeft: () => (
-                <ProfilePicture size={40} image={"https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg"} />
+                // @ts-ignore
+                <ProfilePicture size={40} image={ user?.image} />
             ),
         }}
       />
