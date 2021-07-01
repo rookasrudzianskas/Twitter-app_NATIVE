@@ -19,6 +19,10 @@ function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
+  const saveUserToDB = () => {
+
+  }
+
   useEffect(() => {
     const updateUser = async () => {
       // get the current authenticated user
