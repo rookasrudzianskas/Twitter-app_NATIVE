@@ -1,0 +1,13 @@
+projects:
+  twitterapp:
+    schemaPath: >-
+      Users/rookasrudzianskas/Documents/REACT_NATIVE/REACT_TWITTER/twitterapp/graphql/schema.json
+    includes:
+      - graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: API.ts
+        docsFilePath: graphql
