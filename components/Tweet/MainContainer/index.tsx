@@ -17,11 +17,11 @@ const MainContainer = ({tweet}: MainContainerProps) => {
                 <View style={styles.tweetHeaderNames}>
                     <Text style={styles.name}>{tweet.user.name}</Text>
                     <Text style={styles.username}>@{tweet.user.username}</Text>
-                </View>
-                <View style={styles.something}>
                     <Text style={styles.createdAt}>{moment(tweet.createdAt).fromNow()}</Text>
                     <Ionicons name="chevron-down" />
                 </View>
+                {/*<View style={styles.something}>*/}
+                {/*</View>*/}
             </View>
             <View>
                 <Text style={styles.content}>{tweet.content}</Text>
