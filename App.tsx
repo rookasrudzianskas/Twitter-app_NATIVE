@@ -12,6 +12,7 @@ import config from './aws-exports';
 import { withAuthenticator } from "aws-amplify-react-native";
 // @ts-ignore
 import { getUser } from './graphql/queries';
+import { createUser } from './graphql/mutations';
 
 Amplify.configure(config)
 
