@@ -9,8 +9,12 @@ import NewTweetButton from "../components/NewTweetButton";
 import {EvilIcons, AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
+import {useState} from "react";
 
 export default function NewTweetScreen() {
+
+    const [tweet, setTweet] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     const onPostTweet = () => {
         console.log("on post tweet");
