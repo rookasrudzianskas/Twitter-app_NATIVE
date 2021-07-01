@@ -85,10 +85,8 @@ export default function NewTweetScreen() {
         let image;
         if(!!imageUrl) {
             image = await  uploadImage();
+            setImageUrl(image);
         }
-
-        // we go forward
-
         try {
 
             const currentUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
@@ -127,6 +125,7 @@ export default function NewTweetScreen() {
                 </TouchableOpacity>
                 <Image style={styles.image} source={{uri: imageUrl}} />
             </View>
+
 
         </View>
     </SafeAreaView>
