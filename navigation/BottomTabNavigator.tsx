@@ -119,7 +119,7 @@ function HomeNavigator() {
             ),
             headerLeft: () => (
                 // @ts-ignore
-                <ProfilePicture size={40} image={ user?.image} />
+                <ProfilePicture size={40} image={ user ? user.image : 'https://d2wsh2n0xua73e.cloudfront.net/wp-content/plugins/scholarship-essay-contest/uploads/emptyuserphoto.png'} />
             ),
         }}
       />
