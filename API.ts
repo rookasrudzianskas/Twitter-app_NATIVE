@@ -85,6 +85,24 @@ export type Tweet = {
   image?: string | null,
   userID: string,
   user?: User | null,
+  likes?: ModelLikeConnection | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type ModelLikeConnection = {
+  __typename: "ModelLikeConnection",
+  items?:  Array<Like | null > | null,
+  nextToken?: string | null,
+};
+
+export type Like = {
+  __typename: "Like",
+  id: string,
+  userID: string,
+  tweetID: string,
+  user: User,
+  tweet: Tweet,
   createdAt: string,
   updatedAt: string,
 };
@@ -141,6 +159,30 @@ export type UpdateTweetInput = {
 };
 
 export type DeleteTweetInput = {
+  id: string,
+};
+
+export type CreateLikeInput = {
+  id?: string | null,
+  userID: string,
+  tweetID: string,
+};
+
+export type ModelLikeConditionInput = {
+  userID?: ModelIDInput | null,
+  tweetID?: ModelIDInput | null,
+  and?: Array< ModelLikeConditionInput | null > | null,
+  or?: Array< ModelLikeConditionInput | null > | null,
+  not?: ModelLikeConditionInput | null,
+};
+
+export type UpdateLikeInput = {
+  id: string,
+  userID?: string | null,
+  tweetID?: string | null,
+};
+
+export type DeleteLikeInput = {
   id: string,
 };
 
@@ -290,6 +332,18 @@ export type CreateTweetMutation = {
       createdAt: string,
       updatedAt: string,
     } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -320,6 +374,18 @@ export type UpdateTweetMutation = {
       } | null,
       createdAt: string,
       updatedAt: string,
+    } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -352,6 +418,177 @@ export type DeleteTweetMutation = {
       createdAt: string,
       updatedAt: string,
     } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateLikeMutationVariables = {
+  input: CreateLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type CreateLikeMutation = {
+  createLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateLikeMutationVariables = {
+  input: UpdateLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type UpdateLikeMutation = {
+  updateLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteLikeMutationVariables = {
+  input: DeleteLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type DeleteLikeMutation = {
+  deleteLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -439,6 +676,18 @@ export type GetTweetQuery = {
       createdAt: string,
       updatedAt: string,
     } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -468,6 +717,10 @@ export type ListTweetsQuery = {
         image?: string | null,
         createdAt: string,
         updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
       } | null,
       createdAt: string,
       updatedAt: string,
@@ -575,6 +828,18 @@ export type OnCreateTweetSubscription = {
       createdAt: string,
       updatedAt: string,
     } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -600,6 +865,18 @@ export type OnUpdateTweetSubscription = {
       } | null,
       createdAt: string,
       updatedAt: string,
+    } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -627,6 +904,162 @@ export type OnDeleteTweetSubscription = {
       createdAt: string,
       updatedAt: string,
     } | null,
+    likes?:  {
+      __typename: "ModelLikeConnection",
+      items?:  Array< {
+        __typename: "Like",
+        id: string,
+        userID: string,
+        tweetID: string,
+        createdAt: string,
+        updatedAt: string,
+      } | null > | null,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateLikeSubscription = {
+  onCreateLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateLikeSubscription = {
+  onUpdateLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteLikeSubscription = {
+  onDeleteLike?:  {
+    __typename: "Like",
+    id: string,
+    userID: string,
+    tweetID: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      name: string,
+      email: string,
+      image?: string | null,
+      tweets?:  {
+        __typename: "ModelTweetConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
+    tweet:  {
+      __typename: "Tweet",
+      id: string,
+      content: string,
+      image?: string | null,
+      userID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        name: string,
+        email: string,
+        image?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      likes?:  {
+        __typename: "ModelLikeConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    },
     createdAt: string,
     updatedAt: string,
   } | null,
