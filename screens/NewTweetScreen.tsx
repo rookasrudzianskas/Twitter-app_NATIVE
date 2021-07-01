@@ -18,6 +18,7 @@ export default function NewTweetScreen() {
 
     const onPostTweet = () => {
         console.log("on post tweet");
+        // we go forward
     }
   return (
     <SafeAreaView style={styles.container}>
