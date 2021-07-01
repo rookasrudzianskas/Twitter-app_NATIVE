@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import {API, graphqlOperation} from "aws-amplify";
+import {API, Auth, graphqlOperation} from "aws-amplify";
 import {getUser} from "../graphql/queries";
 
 import Colors from '../constants/Colors';
@@ -79,7 +79,10 @@ function HomeNavigator() {
     useEffect(() => {
         // get the current user
         const fetchUser = async () => {
+            const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true });
+
             try {
+                const userData = await API.graphql(graphqlOperation(getUser, {id: userInfo.attributes.sub} ));
 
             } catch (e) {
 
