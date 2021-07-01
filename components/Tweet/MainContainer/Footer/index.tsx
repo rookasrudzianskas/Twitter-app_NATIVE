@@ -4,6 +4,7 @@ import {TweetType} from "../../../../types";
 import styles from "./styles";
 import {Ionicons, Feather, EvilIcons, AntDesign} from "@expo/vector-icons";
 import {API, graphqlOperation} from "aws-amplify";
+import {createLike} from "../../../../graphql/mutations";
 
 export type MainContainerProps = {
     tweet: TweetType
