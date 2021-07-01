@@ -20,12 +20,15 @@ function App() {
   useEffect(() => {
     const updateUser = async () => {
       // get the current authenticated user
-      // Check if the user already exists in the database
       // if it does not, create the user in the database
 
       // this get the authenticated user, and bypasscache does not use the cashed values, but always gets the new ones
       const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true });
-      console.log(userInfo);
+
+      if(userInfo) {
+      // Check if the user already exists in the database
+
+      }
     }
 
     updateUser();
