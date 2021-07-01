@@ -23,7 +23,7 @@ const Feed = () => {
         } catch (e) {
             console.log(e);
         } finally {
-
+            setLoading(false);
         }
     }
 
@@ -35,8 +35,9 @@ const Feed = () => {
 
     return (
         <View style={{width:"100%"}}>
+    {/*// @ts-ignore*/}
             <FlatList  showsVerticalScrollIndicator={false}
-                       showsHorizontalScrollIndicator={false} data={tweets} renderItem={({item}) => <Tweet tweet={item} />} keyExtractor={(item) => item.id} />
+                       showsHorizontalScrollIndicator={false} onRefresh={fetchTweets} refreshing={loading} data={tweets} renderItem={({item}) => <Tweet tweet={item} />} keyExtractor={(item) => item.id} />
         </View>
     )
 }
