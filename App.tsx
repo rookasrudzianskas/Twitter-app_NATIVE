@@ -19,6 +19,10 @@ function App() {
 
   useEffect(() => {
     const updateUser = async () => {
+      // get the current authenticated user
+      // Check if the user already exists in the database
+      // if it does not, create the user in the database
+
 
     }
 
