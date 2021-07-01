@@ -29,8 +29,7 @@ export default function NewTweetScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
     },
     headerContainer: {
       flexDirection: 'row',
