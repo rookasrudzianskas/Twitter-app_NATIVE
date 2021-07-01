@@ -4,8 +4,13 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from "./style";
 
 const NewTweetButton = () => {
+
+    const onPress = () => {
+        console.log("This works out");
+    }
+
     return (
-        <TouchableOpacity style={styles.}>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
             <MaterialCommunityIcons name="feather" size={24} color="white" />
         </TouchableOpacity>
     )
