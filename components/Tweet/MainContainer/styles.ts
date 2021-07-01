@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
      marginRight: 3,
         color: "grey",
     },
+    content: {
+
+    }
 });
 
 export default styles;
