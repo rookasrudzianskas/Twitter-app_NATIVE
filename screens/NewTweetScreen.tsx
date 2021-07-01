@@ -15,6 +15,7 @@ import {API, Auth, graphqlOperation, Storage} from "aws-amplify";
 import {createTweet} from "../graphql/mutations";
 import * as ImagePicker from 'expo-image-picker';
 import { Button, Image } from 'react-native';
+// @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
 
 import * as Permissions from "expo-permissions";
@@ -63,16 +64,21 @@ export default function NewTweetScreen() {
             const response = await fetch(imageUrl);
 
             const blob = await response.blob();
-            const urlParts = imageUrl.split('.');
-            const extension = urlParts[urlParts.length -1];
-            console.log("🚀", extension);
-            const key = `${uuidv4()}.${extension}`;
-            // const res = await Storage.put("")
 
+            const urlParts = imageUrl.split('.');
+            const extension = urlParts[urlParts.length - 1];
+
+            const key = `${uuidv4()}.${extension}`;
+
+            const res = await Storage.put(key, blob);
+            console.log("DONE", res);
+
+            return key;
 
         } catch (e) {
             console.log(e);
         }
+        return '';
     }
 
     //CONNECTED TO THE AWS
