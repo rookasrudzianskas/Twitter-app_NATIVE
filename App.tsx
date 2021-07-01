@@ -21,7 +21,7 @@ function App() {
   const colorScheme = useColorScheme();
 
   // @ts-ignore
-  // types problem in amplify
+  // types problem in amplify @TODO
   const saveUserToDB = async (user) => {
     await API.graphql(graphqlOperation(createUser, {input: user}));
   }
