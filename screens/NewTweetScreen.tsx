@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import Tweet from "../components/Tweet";
 import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import tweets from "../data/tweets";
 import Feed from "../components/Feed";
 import NewTweetButton from "../components/NewTweetButton";
@@ -15,14 +15,14 @@ export default function NewTweetScreen() {
         console.log("on post tweet");
     }
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
             <AntDesign name="close" size={30} color={Colors.light.tint} />
           <TouchableOpacity style={styles.button} onPress={onPostTweet}>
             <Text style={styles.buttonText}>Tweet</Text>
           </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
