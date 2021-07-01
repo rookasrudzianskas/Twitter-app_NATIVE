@@ -17,8 +17,11 @@ const Footer = ({tweet}: MainContainerProps) => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const user = await  Auth.currentAuthenticatedUser({ bypassCache: true });
-            setUser(user);
+            const currentUser = await  Auth.currentAuthenticatedUser({ bypassCache: true });
+            setUser(currentUser);
+
+            // @ts-ignore
+            const searchedLike = tweet.likes.item.find((like) => like.userID === currentUser.attributes.sub);
         }
 
         fetchUser();
@@ -65,6 +68,7 @@ const Footer = ({tweet}: MainContainerProps) => {
                 </View>
 
                 <View style={styles.iconContainer}>
+                    {/* new */}
                     <EvilIcons name="share-google" size={26} color="gray" />
                 </View>
             </View>
