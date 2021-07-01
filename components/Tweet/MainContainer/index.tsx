@@ -3,6 +3,7 @@ import {View, Text, Image} from "react-native";
 import {TweetType} from "../../../types";
 import styles from "./styles";
 import {Ionicons} from "@expo/vector-icons";
+import Footer from "./Footer";
 
 export type MainContainerProps = {
     tweet: TweetType
@@ -20,8 +21,9 @@ const MainContainer = ({tweet}: MainContainerProps) => {
                     <Ionicons name="chevron-down" />
             </View>
             <View>
-                <Text style={styles.content}>{tweet.content}</Text>
-                {!tweet.image && <Image source={{uri: tweet.image}} />}
+                <Footer tweet={tweet} />
+                {!!tweet.image && <Image style={styles.image} source={{uri: tweet.image}} />}
+
             </View>
         </View>
     )

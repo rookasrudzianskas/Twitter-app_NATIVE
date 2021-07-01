@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
     },
     content: {
         lineHeight: 18,
+        marginTop: 5,
+    },
+    image: {
+        width: '100%',
+        height: 300,
+        resizeMode: "contain",
     }
 });
 
