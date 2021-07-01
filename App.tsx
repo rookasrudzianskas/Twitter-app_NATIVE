@@ -6,7 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
-import Amplify from 'aws-amplify';
+import Amplify, {Auth} from 'aws-amplify';
 import config from './aws-exports';
 // @ts-ignore
 import { withAuthenticator } from "aws-amplify-react-native";
@@ -23,7 +23,9 @@ function App() {
       // Check if the user already exists in the database
       // if it does not, create the user in the database
 
-
+      // this get the authenticated user, and bypasscache does not use the cashed values, but always gets the new ones
+      const userInfo = await Auth.currentAuthenticatedUser({ bypassCache: true });
+      console.log(userInfo);
     }
 
     updateUser();
