@@ -4,6 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
+import {API, graphqlOperation} from "aws-amplify";
+import {getUser} from "../graphql/queries";
+
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/HomeScreen';
@@ -11,6 +14,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BottomTabParamList, HomeNavigatorParamList, TabTwoParamList } from '../types';
 import ProfilePicture from '../components/ProfilePicture';
+import {useEffect, useState} from "react";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -68,6 +72,18 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 const TabOneStack = createStackNavigator<HomeNavigatorParamList>();
 
 function HomeNavigator() {
+
+    const [user, setUser] = useState(null);
+
+
+    useEffect(() => {
+        // get the current user
+        const fetchUser = async () => {
+
+        }
+    }, []);
+
+
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
