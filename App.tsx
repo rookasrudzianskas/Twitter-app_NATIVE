@@ -20,6 +20,8 @@ function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
+  // @ts-ignore
+  // types problem in amplify
   const saveUserToDB = async (user) => {
     await API.graphql(graphqlOperation(createUser, {input: user}));
   }
