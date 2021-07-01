@@ -4,7 +4,7 @@ import {TweetType} from "../../../../types";
 import styles from "./styles";
 import {Ionicons, Feather, EvilIcons, AntDesign} from "@expo/vector-icons";
 import {API, graphqlOperation, Auth} from "aws-amplify";
-import {createLike} from "../../../../graphql/mutations";
+import {createLike, deleteLike} from "../../../../graphql/mutations";
 
 export type MainContainerProps = {
     tweet: TweetType
@@ -49,8 +49,14 @@ const Footer = ({tweet}: MainContainerProps) => {
         }
     }
 
-    const deleteLike = () => {
-
+    const removeLike = async () => {
+        try {
+            await API.graphql(graphqlOperation(deleteLike, {input: {id: myLike.id}}));
+            setLikesCount( likesCount - 1);
+            setMyLike(null);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     const onLike = async () => {
@@ -58,6 +64,12 @@ const Footer = ({tweet}: MainContainerProps) => {
 
         if(!user) {
             return;
+        }
+
+        if(!myLike) {
+            await submitLike();
+        } else {
+           await removeLike();
         }
 
     }
