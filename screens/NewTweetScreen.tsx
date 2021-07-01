@@ -10,8 +10,7 @@ import NewTweetButton from "../components/NewTweetButton";
 export default function NewTweetScreen() {
   return (
     <View style={styles.container}>
-      <Feed/>
-      <NewTweetButton />
+      <Text>Hello World</Text>
     </View>
   );
 }
