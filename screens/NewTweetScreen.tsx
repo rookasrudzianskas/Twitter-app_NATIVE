@@ -82,8 +82,13 @@ export default function NewTweetScreen() {
 
     //CONNECTED TO THE AWS
     const onPostTweet = async () => {
-        await uploadImage();
-        return;
+        let image;
+        if(!!imageUrl) {
+            image = await  uploadImage();
+        }
+
+        console.log(image);
+
         // we go forward
 
         try {
