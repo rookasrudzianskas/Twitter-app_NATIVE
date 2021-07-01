@@ -23,9 +23,13 @@ export default function NewTweetScreen() {
             <Text style={styles.buttonText}>Tweet</Text>
           </TouchableOpacity>
       </View>
-        <View>
+        <View style={styles.newTweetContainer}>
             <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
-            <TextInput placeholder="What's happening?" />
+            <View style={styles.inputsContainer}>
+                <TextInput placeholder="What's happening?" style={styles.tweetInput} />
+                <TextInput placeholder="Image url (optional)" style={styles.imageInput} />
+            </View>
+
         </View>
     </SafeAreaView>
   );
@@ -55,6 +59,18 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
         fontSize: 16,
     },
+    newTweetContainer: {
+
+    },
+    inputsContainer: {
+
+    },
+    tweetInput: {
+
+    },
+    imageInput: {
+
+    }
 
 })
 
