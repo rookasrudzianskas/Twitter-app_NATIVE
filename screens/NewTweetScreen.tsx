@@ -25,7 +25,7 @@ export default function NewTweetScreen() {
       </View>
         <View>
             <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
-            <TextInput />
+            <TextInput placeholder="What's happening?" />
         </View>
     </SafeAreaView>
   );
