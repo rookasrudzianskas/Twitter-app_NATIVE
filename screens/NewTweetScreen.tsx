@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import Tweet from "../components/Tweet";
 import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Text, View, TouchableOpacity, SafeAreaView, TextInput } from 'react-native';
 import tweets from "../data/tweets";
 import Feed from "../components/Feed";
 import NewTweetButton from "../components/NewTweetButton";
@@ -25,6 +25,7 @@ export default function NewTweetScreen() {
       </View>
         <View>
             <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
+            <TextInput />
         </View>
     </SafeAreaView>
   );
