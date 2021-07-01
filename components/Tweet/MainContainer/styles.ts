@@ -3,6 +3,7 @@ import {StyleSheet} from "react-native";
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+        marginHorizontal: 10,
     },
     tweetHeaderContainer: {
         flexDirection: "row",
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
     },
     name: {
-      marginHorizontal: 3,
+      marginRight: 3,
         fontWeight: "bold",
     },
     username: {
