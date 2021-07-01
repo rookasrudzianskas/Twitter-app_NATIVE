@@ -12,7 +12,7 @@ export type TweetProps = {
 const Tweet = ({tweet}: TweetProps) => (
     <View>
         <LeftContainer user={tweet.user} />
-        <MainContainer />
+        <MainContainer tweet={tweet} />
     </View>
 )
 
