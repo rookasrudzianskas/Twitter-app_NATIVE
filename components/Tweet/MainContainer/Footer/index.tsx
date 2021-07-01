@@ -14,6 +14,7 @@ const Footer = ({tweet}: MainContainerProps) => {
 
     const [user, setUser] = useState(null);
     const [myLike, setMyLike] = useState(null);
+    // @ts-ignore
     const [likesCount, setLikesCount] = useState(tweet.likes.items.length);
 
 
@@ -51,6 +52,7 @@ const Footer = ({tweet}: MainContainerProps) => {
 
     const removeLike = async () => {
         try {
+            // @ts-ignore
             await API.graphql(graphqlOperation(deleteLike, {input: {id: myLike.id}}));
             setLikesCount( likesCount - 1);
             setMyLike(null);
