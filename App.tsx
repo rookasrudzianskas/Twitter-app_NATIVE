@@ -18,6 +18,11 @@ function App() {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
+    const updateUser = async () => {
+
+    }
+
+    updateUser();
 
   }, []);
 
