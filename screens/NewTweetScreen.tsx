@@ -70,8 +70,7 @@ export default function NewTweetScreen() {
 
             const key = `${uuidv4()}.${extension}`;
 
-            const res = await Storage.put(key, blob);
-            console.log("DONE", res);
+            await Storage.put(key, blob);
 
             return key;
 
