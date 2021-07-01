@@ -88,6 +88,7 @@ function HomeNavigator() {
                 const userData = await API.graphql(graphqlOperation(getUser, {id: userInfo.attributes.sub} ));
 
                 if(userData) {
+                    // @ts-ignore
                     setUser(userData.data.getUser);
                 }
             } catch (e) {
