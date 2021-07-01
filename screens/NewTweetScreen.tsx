@@ -125,6 +125,7 @@ export default function NewTweetScreen() {
                 </TouchableOpacity>
                 <Image style={styles.image} source={{uri: imageUrl}} />
             </View>
+        {/*    DONE*/}
 
 
         </View>
