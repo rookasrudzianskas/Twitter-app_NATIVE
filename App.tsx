@@ -6,10 +6,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
-import Amplify, {Auth} from 'aws-amplify';
+import Amplify, {Auth, API, graphqlOperation} from 'aws-amplify';
 import config from './aws-exports';
 // @ts-ignore
 import { withAuthenticator } from "aws-amplify-react-native";
+// @ts-ignore
+import { getUser } from './graphql/queries';
 
 Amplify.configure(config)
 
@@ -27,7 +29,8 @@ function App() {
 
       if(userInfo) {
       // Check if the user already exists in the database
-
+        // checks for the user by id, and then by the sub
+      const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }))
       }
     }
 
