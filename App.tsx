@@ -21,7 +21,7 @@ function App() {
   const colorScheme = useColorScheme();
 
   const saveUserToDB = async (user) => {
-
+    await API.graphql(graphqlOperation(createUser, {input: user}));
   }
 
   const getRandomImage = () => {
