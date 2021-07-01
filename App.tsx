@@ -24,6 +24,7 @@ function App() {
   // types problem in amplify @TODO
   const saveUserToDB = async (user) => {
     console.log("👽", user);
+    // creates the user in the database
     await API.graphql(graphqlOperation(createUser, {input: user}));
   }
 
@@ -45,6 +46,7 @@ function App() {
         // checks for the user by id, and then by the sub
       const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }));
 
+        // @ts-ignore
         if(!userData.data.getUser) {
           const user = {
             // this is because of the id, it is an unique identifier
