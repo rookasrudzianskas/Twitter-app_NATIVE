@@ -19,6 +19,7 @@ const Feed = () => {
             const tweetsData = await API.graphql(graphqlOperation(listTweets));
             // @ts-ignore
             setTweets(tweetsData.data.listTweets.items);
+            console.log(tweetsData.data.listTweets.items)
 
         } catch (e) {
             console.log(e);
@@ -33,9 +34,9 @@ const Feed = () => {
     }, []);
 
 
+    // @ts-ignore
     return (
         <View style={{width:"100%"}}>
-    {/*// @ts-ignore*/}
             <FlatList  showsVerticalScrollIndicator={false}
                        showsHorizontalScrollIndicator={false} onRefresh={fetchTweets} refreshing={loading} data={tweets} renderItem={({item}) => <Tweet tweet={item} />} keyExtractor={(item) => item.id} />
         </View>
