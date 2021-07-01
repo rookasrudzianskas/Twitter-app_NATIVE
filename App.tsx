@@ -23,6 +23,11 @@ function App() {
 
   }
 
+  const getRandomImage = () => {
+    // @ts-ignore
+    return 'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg';
+  }
+
   useEffect(() => {
     const updateUser = async () => {
       // get the current authenticated user
@@ -46,9 +51,10 @@ function App() {
             username: userInfo.attributes.username,
             name: userInfo.attributes.username,
             email: userInfo.attributes.email,
+            image: getRandomImage(),
 
           }
-          saveUserToDB();
+          await saveUserToDB();
         } else {
           console.log("User already exists in the database");
         }
