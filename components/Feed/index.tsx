@@ -5,7 +5,10 @@ import Tweet from "../Tweet";
 
 const Feed = () => {
     return (
-        <FlatList data={tweets} renderItem={({item}) => <Tweet tweet={item} />} keyExtractor={(item) => item.id} />
+        <View style={{width:"100%"}}>
+            <FlatList  showsVerticalScrollIndicator={false}
+                       showsHorizontalScrollIndicator={false} data={tweets} renderItem={({item}) => <Tweet tweet={item} />} keyExtractor={(item) => item.id} />
+        </View>
     )
 }
 
