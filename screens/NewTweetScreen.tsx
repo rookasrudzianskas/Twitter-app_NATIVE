@@ -25,16 +25,16 @@ export default function NewTweetScreen() {
 
         try {
 
-            const currentUser = Auth.currentAuthenticatedUser({ bypassCache: true });
+            const currentUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
 
             const newTweet = {
                 content: tweet,
                 image: imageUrl,
-                userId: currentUser.attributes.sub,
+                userID: currentUser.attributes.sub,
             }
-            await API.graphql(graphqlOperation(createTweet, {input: newTweet}))
+            await API.graphql(graphqlOperation(createTweet, {input: newTweet}));
         } catch (e) {
-            console.log(e.message);
+            console.log("ERROR", e);
         }
     }
 
