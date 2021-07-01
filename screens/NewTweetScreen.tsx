@@ -36,6 +36,7 @@ export default function NewTweetScreen() {
 
         </View>
     </SafeAreaView>
+  //    front end is done
   );
 }
 
