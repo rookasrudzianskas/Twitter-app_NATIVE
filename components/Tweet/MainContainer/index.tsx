@@ -10,14 +10,14 @@ export type MainContainerProps = {
 
 const MainContainer = ({tweet}: MainContainerProps) => {
     return (
-        <View>
+        <View style={styles.container}>
             <View style={styles.tweetHeaderContainer}>
                 <View style={styles.tweetHeaderNames}>
                     <Text style={styles.name}>{tweet.user.name}</Text>
                     <Text style={styles.username}>@{tweet.user.username}</Text>
                     <Text style={styles.createdAt}>15s.</Text>
                 </View>
-                <Ionicons style={styles.moreIcon} name="chevron-down" />
+                    <Ionicons name="chevron-down" />
             </View>
             <View>
                 <Text>{tweet.content}</Text>
