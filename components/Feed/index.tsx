@@ -9,21 +9,26 @@ import Tweet from "../Tweet";
 const Feed = () => {
 
     const [tweets, setTweets] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    // WORKING
+    const fetchTweets = async () => {
+        // get the tweets from the backend and set them to the state
+        setLoading(true);
+        try {
+            const tweetsData = await API.graphql(graphqlOperation(listTweets));
+            // @ts-ignore
+            setTweets(tweetsData.data.listTweets.items);
+
+        } catch (e) {
+            console.log(e);
+        } finally {
+
+        }
+    }
 
     useEffect(() => {
         // get all the data, then component mounts
-
-        // WORKING
-        const fetchTweets = async () => {
-            // get the tweets from the backend and set them to the state
-            try {
-                const tweetsData = await API.graphql(graphqlOperation(listTweets));
-                setTweets(tweetsData.data.listTweets.items);
-            } catch (e) {
-                console.log(e);
-            }
-        }
-
         fetchTweets();
     }, []);
 
