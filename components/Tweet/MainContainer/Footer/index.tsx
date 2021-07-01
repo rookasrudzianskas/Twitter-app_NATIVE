@@ -13,6 +13,7 @@ export type MainContainerProps = {
 const Footer = ({tweet}: MainContainerProps) => {
 
     const [user, setUser] = useState(null);
+    const [myLike, setMyLike] = useState(null);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -30,11 +31,14 @@ const Footer = ({tweet}: MainContainerProps) => {
             return;
         }
         const like = {
+        // @ts-ignore
            userID: user.attributes.sub,
            tweetID: tweet.id,
         }
         try {
             const res = await API.graphql(graphqlOperation(createLike, {input: like}));
+            // @ts-ignore
+            setMyLike(res.data.createLike);
             console.log(res);
         } catch (e) {
             console.log(e);
@@ -55,7 +59,7 @@ const Footer = ({tweet}: MainContainerProps) => {
 
                 <View style={styles.iconContainer}>
                     <TouchableOpacity onPress={onLike}>
-                        <AntDesign name="hearto" size={20} color="gray" />
+                        <AntDesign name={!myLike ? "hearto" : 'heart'} size={20} color={!myLike ? "gray" : "red"} />
                         <Text style={styles.number}>{tweet.numberOfLikes}</Text>
                     </TouchableOpacity>
                 </View>
