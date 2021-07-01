@@ -16,7 +16,7 @@ export default function NewTweetScreen() {
     }
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.headerContainer}>
             <AntDesign name="close" size={30} color={Colors.light.tint} />
           <TouchableOpacity style={styles.button} onPress={onPostTweet}>
             <Text style={styles.buttonText}>Tweet</Text>
@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    headerContainer: {
+      flexDirection: 'row',
+        justifyContent: "space-between",
+        flex: 1,
+    },
     button: {
         backgroundColor: Colors.light.tint,
         borderRadius: 30,
@@ -42,6 +47,7 @@ const styles = StyleSheet.create({
       paddingVertical: 10,
       color: "white",
       fontWeight: "bold",
+        fontSize: 16,
     },
 
 })
