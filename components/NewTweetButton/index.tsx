@@ -3,9 +3,9 @@ import {View, Text, TouchableOpacity} from "react-native";
 
 const NewTweetButton = () => {
     return (
-        <View>
+        <TouchableOpacity>
 
-        </View>
+        </TouchableOpacity>
     )
 }
 
