@@ -18,8 +18,6 @@ const MainContainer = ({tweet}: MainContainerProps) => {
                 <Text>{tweet.content}</Text>
                 {!tweet.image && <Image source={{uri: tweet.image}} />}
             </View>
-            {/*    Profile picture */}
-
         </View>
     )
 }
