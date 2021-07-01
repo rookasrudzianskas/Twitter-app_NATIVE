@@ -19,9 +19,23 @@ export default function NewTweetScreen() {
     const [tweet, setTweet] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
-    const onPostTweet = () => {
+    const onPostTweet = async () => {
         console.log("on post tweet");
         // we go forward
+
+        try {
+
+            const currentUser = Auth.currentAuthenticatedUser({ bypassCache: true });
+
+            const newTweet = {
+                content: tweet,
+                image: imageUrl,
+                userId: currentUser.attributes.sub,
+            }
+            await API.graphql(graphqlOperation(createTweet, {input: newTweet}))
+        } catch (e) {
+            console.log(e.message);
+        }
     }
 
     const navigation = useNavigation();
