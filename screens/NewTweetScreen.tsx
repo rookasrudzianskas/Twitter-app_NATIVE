@@ -14,6 +14,8 @@ import {useNavigation} from "@react-navigation/native";
 import {API, Auth, graphqlOperation} from "aws-amplify";
 import {createTweet} from "../graphql/mutations";
 import * as ImagePicker from 'expo-image-picker';
+import { Button, Image } from 'react-native';
+
 
 import * as Permissions from "expo-permissions";
 
@@ -36,6 +38,25 @@ export default function NewTweetScreen() {
     useEffect(() => {
         getPermissionAsync();
     }, []);
+
+
+    const pickImage = async () => {
+        try{
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+        if (!result.cancelled) {
+            setImageUrl(result.uri);
+        }
+
+        console.log(result);
+        } catch(e) {
+            console.log(e);
+        }
+    };
 
     //CONNECTED TO THE AWS
     const onPostTweet = async () => {
