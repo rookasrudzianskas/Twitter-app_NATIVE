@@ -21,7 +21,10 @@ const Footer = ({tweet}: MainContainerProps) => {
             setUser(currentUser);
 
             // @ts-ignore
-            const searchedLike = tweet.likes.item.find((like) => like.userID === currentUser.attributes.sub);
+            // we search if the post is liked and we make it liked again
+            const searchedLike = tweet.likes.items.find((like) => like.userID === currentUser.attributes.sub);
+
+            setMyLike(searchedLike);
         }
 
         fetchUser();
