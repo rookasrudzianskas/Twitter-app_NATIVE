@@ -10,7 +10,7 @@ const NewTweetButton = () => {
     }
 
     return (
-        <TouchableOpacity style={styles.button} onPress={onPress}>
+        <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.8} >
             <MaterialCommunityIcons name="feather" size={24} color="white" />
         </TouchableOpacity>
     )
