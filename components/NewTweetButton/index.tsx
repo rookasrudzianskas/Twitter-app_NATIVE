@@ -8,7 +8,7 @@ const NewTweetButton = () => {
 
     const navigation = useNavigation();
     const onPress = () => {
-
+        navigation.navigate('NewTweet');
     }
 
     return (
