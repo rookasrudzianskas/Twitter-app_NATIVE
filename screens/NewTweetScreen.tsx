@@ -19,6 +19,8 @@ export default function NewTweetScreen() {
     const [tweet, setTweet] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
+
+    //CONNECTED TO THE AWS
     const onPostTweet = async () => {
         console.log("on post tweet");
         // we go forward
