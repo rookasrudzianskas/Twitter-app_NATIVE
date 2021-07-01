@@ -79,8 +79,14 @@ function HomeNavigator() {
     useEffect(() => {
         // get the current user
         const fetchUser = async () => {
+            try {
 
+            } catch (e) {
+
+            }
         }
+
+        fetchUser();
     }, []);
 
 
