@@ -23,10 +23,8 @@ function App() {
   // @ts-ignore
   // types problem in amplify @TODO
   const saveUserToDB = async (user) => {
-    console.log("This goes in here #4");
-
-    await API.graphql(graphqlOperation(createUser, {input: user}));
     console.log("👽", user);
+    await API.graphql(graphqlOperation(createUser, {input: user}));
   }
 
   const getRandomImage = () => {
@@ -52,8 +50,8 @@ function App() {
             // this is because of the id, it is an unique identifier
             id: userInfo.attributes.sub,
             // follows
-            username: userInfo.attributes.username,
-            name: userInfo.attributes.username,
+            username: userInfo.username,
+            name: userInfo.username,
             email: userInfo.attributes.email,
             image: getRandomImage(),
 
