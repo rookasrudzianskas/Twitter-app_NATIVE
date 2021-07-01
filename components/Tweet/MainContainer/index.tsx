@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from "react-native";
+import {View, Text, Image} from "react-native";
 import {TweetType} from "../../../types";
 
 export type MainContainerProps = {
@@ -14,7 +14,10 @@ const MainContainer = ({tweet}: MainContainerProps) => {
                 <Text>{tweet.user.username}</Text>
                 <Text>{tweet.createdAt}</Text>
             </View>
-            <Text>Hello World 🚀</Text>
+            <View>
+                <Text>{tweet.content}</Text>
+                {!tweet.image && <Image source={{uri: tweet.image}} />}
+            </View>
             {/*    Profile picture */}
 
         </View>
