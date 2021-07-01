@@ -19,7 +19,7 @@ function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  const saveUserToDB = () => {
+  const saveUserToDB = async (user) => {
 
   }
 
@@ -38,7 +38,11 @@ function App() {
         console.log(userData);
 
         if(!userData.data.getUser) {
-          saveUserToDB()
+
+          const user = {
+
+          }
+          saveUserToDB();
         } else {
           console.log("User already exists in the database");
         }
