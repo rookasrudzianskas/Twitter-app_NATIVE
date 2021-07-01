@@ -14,7 +14,6 @@ import {useState} from "react";
 export default function NewTweetScreen() {
 
     const [tweet, setTweet] = useState("");
-    console.log(tweet);
     const [imageUrl, setImageUrl] = useState("");
 
     const onPostTweet = () => {
@@ -67,6 +66,7 @@ const styles = StyleSheet.create({
     newTweetContainer: {
         flexDirection: "row",
         padding: 15,
+        alignContent: 'center',
     },
     inputsContainer: {
         marginLeft: 10,
