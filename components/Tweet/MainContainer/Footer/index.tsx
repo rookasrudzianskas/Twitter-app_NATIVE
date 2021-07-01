@@ -11,24 +11,23 @@ export type MainContainerProps = {
 const Footer = ({tweet}: MainContainerProps) => {
     return (
             <View style={styles.container}>
-                <View>
+                <View style={styles.iconContainer}>
                     <Feather name="message-circle" size={20} color="gray" />
                     <Text style={styles.number}>{tweet.numberOfComments}</Text>
                 </View>
 
-                <View>
+                <View style={styles.iconContainer}>
                     <EvilIcons name="retweet" size={20} color="gray" />
                     <Text style={styles.number}>{tweet.numberOfRetweets}</Text>
                 </View>
 
-                <View>
+                <View style={styles.iconContainer}>
                     <AntDesign name="hearto" size={20} color="gray" />
                     <Text style={styles.number}>{tweet.numberOfLikes}</Text>
                 </View>
 
-                <View>
+                <View style={styles.iconContainer}>
                     <EvilIcons name="share-google" size={20} color="gray" />
-                    <Text style={styles.number}>{tweet.numberOfLikes}</Text>
                 </View>
             </View>
     )
