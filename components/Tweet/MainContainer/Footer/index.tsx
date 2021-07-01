@@ -32,16 +32,11 @@ const Footer = ({tweet}: MainContainerProps) => {
         fetchUser();
     }, []);
 
-    const onLike = async () => {
-        console.log("ON LIKE")
-
-        if(!user) {
-            return;
-        }
+    const submitLike = async () => {
         const like = {
-        // @ts-ignore
-           userID: user.attributes.sub,
-           tweetID: tweet.id,
+            // @ts-ignore
+            userID: user.attributes.sub,
+            tweetID: tweet.id,
         }
         try {
             const res = await API.graphql(graphqlOperation(createLike, {input: like}));
@@ -52,7 +47,19 @@ const Footer = ({tweet}: MainContainerProps) => {
         } catch (e) {
             console.log(e);
         }
-        console.log("LIKE PRESSED");
+    }
+
+    const deleteLike = () => {
+
+    }
+
+    const onLike = async () => {
+        console.log("ON LIKE")
+
+        if(!user) {
+            return;
+        }
+
     }
     return (
             <View style={styles.container}>
