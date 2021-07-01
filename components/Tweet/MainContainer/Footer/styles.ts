@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
 
     },
     number: {
+        marginLeft: 5,
         color: "grey",
+        textAlign: "center",
     },
 
 });

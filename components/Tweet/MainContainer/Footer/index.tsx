@@ -17,7 +17,7 @@ const Footer = ({tweet}: MainContainerProps) => {
                 </View>
 
                 <View style={styles.iconContainer}>
-                    <EvilIcons name="retweet" size={20} color="gray" />
+                    <EvilIcons name="retweet" size={28} color="gray" />
                     <Text style={styles.number}>{tweet.numberOfRetweets}</Text>
                 </View>
 
