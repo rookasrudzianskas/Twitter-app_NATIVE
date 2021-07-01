@@ -13,10 +13,18 @@ const Feed = () => {
     useEffect(() => {
         // get all the data, then component mounts
 
+        // WORKING
         const fetchTweets = async () => {
             // get the tweets from the backend and set them to the state
-
+            try {
+                const tweetsData = await API.graphql(graphqlOperation(listTweets));
+                console.log(tweetsData);
+            } catch (e) {
+                console.log(e);
+            }
         }
+
+        fetchTweets();
     }, []);
 
 
