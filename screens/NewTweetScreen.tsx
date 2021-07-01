@@ -11,11 +11,11 @@ import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
-import {API, Auth, graphqlOperation} from "aws-amplify";
+import {API, Auth, graphqlOperation, Storage} from "aws-amplify";
 import {createTweet} from "../graphql/mutations";
 import * as ImagePicker from 'expo-image-picker';
 import { Button, Image } from 'react-native';
-
+import { v4 as uuidv4 } from 'uuid';
 
 import * as Permissions from "expo-permissions";
 
@@ -58,9 +58,27 @@ export default function NewTweetScreen() {
         }
     };
 
+    const uploadImage = async () => {
+        try {
+            const response = await fetch(imageUrl);
+
+            const blob = await response.blob();
+            const urlParts = imageUrl.split('.');
+            const extension = urlParts[urlParts.length -1];
+            console.log("🚀", extension);
+            const key = `${uuidv4()}.${extension}`;
+            // const res = await Storage.put("")
+
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     //CONNECTED TO THE AWS
     const onPostTweet = async () => {
-        console.log("on post tweet");
+        await uploadImage();
+        return;
         // we go forward
 
         try {
