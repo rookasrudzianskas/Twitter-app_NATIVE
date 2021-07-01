@@ -6,14 +6,15 @@ const styles = StyleSheet.create({
         // flex: 1,
         // backgroundColor: "orange",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: 5,
     },
     iconContainer: {
       flexDirection: "row",
       alignItems: "center",
     },
     content: {
-
+        marginTop: 10,
     },
     number: {
         marginLeft: 5,
