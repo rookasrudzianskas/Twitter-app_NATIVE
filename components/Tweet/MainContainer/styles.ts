@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     username: {
-     marginHorizontal: 3,
+     marginRight: 3,
         color: "grey",
     },
     createdAt: {
-     marginHorizontal: 3,
+     marginRight: 3,
         color: "grey",
     },
 });
