@@ -6,8 +6,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     tweetHeaderContainer: {
-        flexDirection: "row",
+        flexDirection: "column",
         justifyContent: "space-between",
+    },
+    something: {
+        flexDirection: "row",
+        marginBottom: 3,
     },
     tweetHeaderNames: {
       flexDirection: "row",
