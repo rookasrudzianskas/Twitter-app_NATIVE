@@ -30,7 +30,14 @@ function App() {
       if(userInfo) {
       // Check if the user already exists in the database
         // checks for the user by id, and then by the sub
-      const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }))
+      const userData = await API.graphql(graphqlOperation(getUser, { id: userInfo.attributes.sub }));
+        console.log(userData);
+
+        if(!userData.data.getUser) {
+          saveUserToDB()
+        } else {
+          console.log("User already exists in the database");
+        }
       }
     }
 
