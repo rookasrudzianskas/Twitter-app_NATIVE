@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         // flex: 1,
         // backgroundColor: "orange",
         justifyContent: "space-between",
+        alignItems: "center"
     },
     iconContainer: {
       flexDirection: "row",

@@ -27,7 +27,7 @@ const Footer = ({tweet}: MainContainerProps) => {
                 </View>
 
                 <View style={styles.iconContainer}>
-                    <EvilIcons name="share-google" size={20} color="gray" />
+                    <EvilIcons name="share-google" size={26} color="gray" />
                 </View>
             </View>
     )
