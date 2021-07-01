@@ -10,6 +10,11 @@
       "StackName": "amplify-twitterapp-dev-85340",
       "StackId": "arn:aws:cloudformation:us-east-1:986698840618:stack/amplify-twitterapp-dev-85340/b1accf70-da30-11eb-a3c5-121b58656156",
       "AmplifyAppId": "d7a8oc7kymfqg"
+    },
+    "categories": {
+      "auth": {
+        "twitterappda23821f": {}
+      }
     }
   }
 }
