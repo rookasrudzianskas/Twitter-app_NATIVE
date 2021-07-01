@@ -65,8 +65,11 @@ const styles = StyleSheet.create({
     },
     inputsContainer: {
         marginLeft: 10,
+
     },
     tweetInput: {
+        maxHeight: 300,
+        height: 100,
 
     },
     imageInput: {
