@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         color: "grey",
     },
     content: {
-        lineHeight: 19,
+        lineHeight: 18,
     }
 });
 
