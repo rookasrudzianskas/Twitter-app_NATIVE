@@ -40,6 +40,8 @@ function App() {
         if(!userData.data.getUser) {
 
           const user = {
+            // this is because of the id, it is an unique identifier
+            id: userInfo.attributes.sub,
             username: userInfo.attributes.username,
             name: userInfo.attributes.username,
             email: userInfo.attributes.email,
