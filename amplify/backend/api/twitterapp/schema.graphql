@@ -13,7 +13,7 @@ type Tweet @model @key(name: "byUser", fields: ["userID"]) {
   image: String
   userID: ID!
   user: User @connection(fields: ["userID"])
-  likes: [User] @connection(keyName: "byTweet", fields: ["id"])
+  likes: [Like] @connection(keyName: "byTweet", fields: ["id"])
 }
 
 type Like
