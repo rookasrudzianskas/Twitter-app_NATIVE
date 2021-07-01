@@ -12,17 +12,33 @@ export type MainContainerProps = {
 
 const Footer = ({tweet}: MainContainerProps) => {
 
-    const onLike = () => {
-        const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
 
-        useEffect(() => {
-            const fetchUser = async () => {
-                const user = await  Auth.currentAuthenticatedUser({ bypassCache: true });
-                setUser(user);
-            }
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await  Auth.currentAuthenticatedUser({ bypassCache: true });
+            setUser(user);
+        }
 
-            fetchUser();
-        }, []);
+        fetchUser();
+    }, []);
+
+    const onLike = async () => {
+        console.log("ON LIKE")
+
+        if(!user) {
+            return;
+        }
+        const like = {
+           userID: user.attributes.sub,
+           tweetID: tweet.id,
+        }
+        try {
+            const res = await API.graphql(graphqlOperation(createLike, {input: like}));
+            console.log(res);
+        } catch (e) {
+            console.log(e);
+        }
         console.log("LIKE PRESSED");
     }
     return (
@@ -38,7 +54,7 @@ const Footer = ({tweet}: MainContainerProps) => {
                 </View>
 
                 <View style={styles.iconContainer}>
-                    <TouchableOpacity onPress={(e) => onLike}>
+                    <TouchableOpacity onPress={onLike}>
                         <AntDesign name="hearto" size={20} color="gray" />
                         <Text style={styles.number}>{tweet.numberOfLikes}</Text>
                     </TouchableOpacity>
