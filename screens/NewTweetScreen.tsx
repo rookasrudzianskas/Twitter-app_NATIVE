@@ -26,7 +26,7 @@ export default function NewTweetScreen() {
         <View style={styles.newTweetContainer}>
             <ProfilePicture image={'https://pbs.twimg.com/profile_images/1350895249678348292/RS1Aa0iK.jpg'} />
             <View style={styles.inputsContainer}>
-                <TextInput numberOfLines={3} placeholder="What's happening?" style={styles.tweetInput} />
+                <TextInput multiline={true} numberOfLines={3} placeholder="What's happening?" style={styles.tweetInput} />
                 <TextInput placeholder="Image url (optional)" style={styles.imageInput} />
             </View>
 
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     tweetInput: {
         maxHeight: 300,
         height: 100,
+        fontSize: 20,
 
     },
     imageInput: {
