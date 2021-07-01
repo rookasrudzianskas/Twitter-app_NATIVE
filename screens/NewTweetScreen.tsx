@@ -10,6 +10,7 @@ import {EvilIcons, AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import {useState} from "react";
+import {useNavigation} from "@react-navigation/native";
 
 export default function NewTweetScreen() {
 
@@ -20,10 +21,17 @@ export default function NewTweetScreen() {
         console.log("on post tweet");
         // we go forward
     }
+
+    const navigation = useNavigation();
+
+    const closeModal = () => {
+        navigation.navigate('HomeScreen');
+    }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-            <AntDesign name="close" size={30} color={Colors.light.tint} />
+            <AntDesign name="close" size={30} color={Colors.light.tint} onPress={closeModal} />
           <TouchableOpacity style={styles.button} onPress={onPostTweet}>
             <Text style={styles.buttonText}>Tweet</Text>
           </TouchableOpacity>
