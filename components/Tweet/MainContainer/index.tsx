@@ -11,9 +11,9 @@ const MainContainer = ({tweet}: MainContainerProps) => {
     return (
         <View>
             <View style={styles.tweetHeaderContainer}>
-                <Text>{tweet.user.name}</Text>
-                <Text>{tweet.user.username}</Text>
-                <Text>{tweet.createdAt}</Text>
+                <Text style={styles.name}>{tweet.user.name}</Text>
+                <Text style={styles.username}>{tweet.user.username}</Text>
+                <Text style={styles.createdAt}>15s.</Text>
             </View>
             <View>
                 <Text>{tweet.content}</Text>
