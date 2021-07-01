@@ -21,8 +21,9 @@ const MainContainer = ({tweet}: MainContainerProps) => {
                     <Ionicons name="chevron-down" />
             </View>
             <View>
-                <Footer tweet={tweet} />
+                <Text style={styles.content}>{tweet.content}</Text>
                 {!!tweet.image && <Image style={styles.image} source={{uri: tweet.image}} />}
+                <Footer tweet={tweet} />
 
             </View>
         </View>
