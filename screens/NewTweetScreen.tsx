@@ -11,6 +11,8 @@ import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
 import {useState} from "react";
 import {useNavigation} from "@react-navigation/native";
+import {API, Auth, graphqlOperation} from "aws-amplify";
+import {createTweet} from "../graphql/mutations";
 
 export default function NewTweetScreen() {
 
