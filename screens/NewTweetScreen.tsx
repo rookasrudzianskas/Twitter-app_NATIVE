@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     newTweetContainer: {
-
+        flexDirection: "row",
     },
     inputsContainer: {
 
