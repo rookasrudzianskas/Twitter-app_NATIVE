@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import Tweet from "../components/Tweet";
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View, TouchableOpacity, SafeAreaView, TextInput } from 'react-native';
@@ -9,10 +9,13 @@ import NewTweetButton from "../components/NewTweetButton";
 import {EvilIcons, AntDesign} from "@expo/vector-icons";
 import Colors from "../constants/Colors";
 import ProfilePicture from "../components/ProfilePicture";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 import {API, Auth, graphqlOperation} from "aws-amplify";
 import {createTweet} from "../graphql/mutations";
+import * as ImagePicker from 'expo-image-picker';
+
+import * as Permissions from "expo-permissions";
 
 export default function NewTweetScreen() {
 
@@ -20,6 +23,19 @@ export default function NewTweetScreen() {
     const [imageUrl, setImageUrl] = useState("");
 
     const navigation = useNavigation();
+
+    const getPermissionAsync = async () => {
+        if (Platform.OS !== 'web') {
+            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            if (status !== 'granted') {
+                alert('Sorry, we need camera roll permissions to make this work!');
+            }
+        }
+    };
+
+    useEffect(() => {
+        getPermissionAsync();
+    }, []);
 
     //CONNECTED TO THE AWS
     const onPostTweet = async () => {
